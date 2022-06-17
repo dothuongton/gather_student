@@ -10,8 +10,8 @@
     <title>Tìm kiếm sinh </title>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <style>
-        th{
-            font-size:10px;
+        th,td{
+            font-size:9px;
         }
     </style>
 </head>
@@ -21,8 +21,8 @@
 <div class="container-fluid text-center">
     <div class="row">
         <div class="col">
-            <h3 class="mTra cứu thông tin sinh viên</h3>
-            <img  src="img/ghtk_logo.png" width="300px" height="300" alt="" srcset="">
+            <h5 class="mt-5">TRA CỨU THÔNG TIN SINH </h5>
+            <img src="img/ghtk_logo.png" width="250" height="250" alt="logo">
             <form class="d-flex justify-content-center mt-3" method="post" action="{{route("GHTK.upload")}}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
@@ -31,6 +31,11 @@
                 </div>
                 <button class="d-block" style="height: 30px;margin-left: -100px;" type="submit"> Import </button>
             </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            inout
         </div>
     </div>
     <div class="row mt-5">
@@ -55,7 +60,9 @@
                 </tr>
                 </thead>
                 <tbody>
+
                 @foreach($data as $student)
+                    {{--@dd($student->ngay.'-'.$student->thang.'-'.$student->nam)--}}
                     <tr>
 
                         <td>{{$student->id}}</td>
@@ -64,8 +71,8 @@
                         <td>{{$student->ma_hs}}</td>
                         <td>{{$student->lop}}</td>
                         <td>{{$student->ho_ten}}</td>
-                        <td></td>
-                        {{--<td>{{$student->ngay +$student->thang +$student->}}</td>nam--}}
+                        {{--<td></td>--}}
+                        <td>{{$student->ngay.'/'.$student->thang.'/'.$student->nam}}</td>
                         <td>{{$student->gioi_tinh}}</td>
                         <td>{{$student->noi_sinh}}</td>
                         <td>{{$student->dan_toc}}</td>
