@@ -28,20 +28,18 @@ class HomeCtrl
     public function save(Request $request)
     {
         $file = $request->file('file');
-        # lấy dữ liệu
+
         $fileName = $file->getClientOriginalName();
         if (strstr($fileName, '.') !== '.xlsx') {
-            #xem thăng sweet aleart nhé
-            # không đúng định dạng file
+
         }
-        #validate dữ liêu Vđ : .xslx
         $data = $this->getDataFile($request, [
             'ten_truong', 'quan_huyen', 'ma_hs', 'lop', 'ho_ten', 'ngay', 'thang', 'nam',
             'gioi_tinh', 'noi_sinh', 'dan_toc', 'ho_khau', 'dien_thoai',
             'sc_1', 'sc_2', 'sc_3', 'sc_4', 'sc_5','sc_total', 'ghi_chu'
 
         ]);
-        # xư lý dữ liệu
+
         foreach ($data as $item) {
             $objToSave = [
                 'ten_truong' => trim($item['ten_truong']),
@@ -81,8 +79,8 @@ class HomeCtrl
         $reader->open($path_file);
         $objToSave = [];
         foreach ($reader->getSheetIterator() as $ks => $sheet) {
-            $data = [];         // dữ liệu của từng cột
-            $format = [];       // chứa key cột
+            $data = [];
+            $format = [];
             if ($ks < 2) {
                 foreach ($sheet->getRowIterator() as $k => $row) {
                     // do stuff with the row
