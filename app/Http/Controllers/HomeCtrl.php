@@ -114,5 +114,9 @@ class HomeCtrl
         return $objToSave;
 
     }
-
+    public  function search(Request  $req){
+         $sinhVien = Students::where('ho_ten', 'like', '%'.$req->studentCode.'%')->get();
+         return  view('welcome',['sinhVien'=>$sinhVien]);
+         dd($sinhVien);
+    }
 }

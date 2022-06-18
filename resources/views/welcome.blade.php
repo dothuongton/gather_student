@@ -35,7 +35,11 @@
     </div>
     <div class="row">
         <div class="col">
-            inout
+            <form role="search" method="get" id="searchForm" action="{{route('GHTK.search')}}">
+                <input type="text" name="studentCode" id="studentCode" placeholder="Nhập mã học sinh...">
+                <input type="text" name="studentName" id="studentName" placeholder="Nhập tên">
+                <button type="submit" id="btnSearch">Tìm kiếm</button>
+            </form>
         </div>
     </div>
     <div class="row mt-5">
@@ -61,27 +65,27 @@
                 </thead>
                 <tbody>
 
-                @foreach($data as $student)
-                    {{--@dd($student->ngay.'-'.$student->thang.'-'.$student->nam)--}}
-                    <tr>
+                    @foreach($data as $student)
+                        {{--@dd($student->ngay.'-'.$student->thang.'-'.$student->nam)--}}
+                        <tr>
 
-                        <td>{{$student->id}}</td>
-                        <td>{{$student->ten_truong}}</td>
-                        <td>{{$student->quan_huyen}}</td>
-                        <td>{{$student->ma_hs}}</td>
-                        <td>{{$student->lop}}</td>
-                        <td>{{$student->ho_ten}}</td>
-                        {{--<td></td>--}}
-                        <td>{{$student->ngay.'/'.$student->thang.'/'.$student->nam}}</td>
-                        <td>{{$student->gioi_tinh}}</td>
-                        <td>{{$student->noi_sinh}}</td>
-                        <td>{{$student->dan_toc}}</td>
-                        <td>{{$student->ho_khau}}</td>
-                        <td>{{$student->sdt}}</td>
-                        <td>{{$student->sc_total}}</td>
-                        <td>{{$student->ghi_chu}}</td>
-                    </tr>
-                @endforeach
+                            <td>{{$student->id}}</td>
+                            <td>{{$student->ten_truong}}</td>
+                            <td>{{$student->quan_huyen}}</td>
+                            <td>{{$student->ma_hs}}</td>
+                            <td>{{$student->lop}}</td>
+                            <td>{{$student->ho_ten}}</td>
+                            {{--<td></td>--}}
+                            <td>{{$student->ngay.'/'.$student->thang.'/'.$student->nam}}</td>
+                            <td>{{$student->gioi_tinh}}</td>
+                            <td>{{$student->noi_sinh}}</td>
+                            <td>{{$student->dan_toc}}</td>
+                            <td>{{$student->ho_khau}}</td>
+                            <td>{{$student->sdt}}</td>
+                            <td>{{$student->sc_total}}</td>
+                            <td>{{$student->ghi_chu}}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
 
             </table>

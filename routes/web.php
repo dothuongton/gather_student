@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => '/','as' => 'GHTK.'], function () {
     Route::get('danh_sach.html',[\App\Http\Controllers\HomeCtrl::class,'index'])->name('Home');
     Route::post('save',[\App\Http\Controllers\HomeCtrl::class,'save'])->name('upload');
+    Route::get('search',[\App\Http\Controllers\HomeCtrl::class, 'search'])->name('search');
 });
